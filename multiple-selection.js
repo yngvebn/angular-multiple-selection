@@ -42,13 +42,13 @@ function offset(element) {
 angular.module('multipleSelection', [])
     .directive('multipleSelectionItem', [function() {
         return {
-            scope: true,
+            scope:{
+                isSelectable: '=',
+                isSelecting: '=',
+                isSelected: '='
+            },
             restrict: 'A',
             link: function(scope, element, iAttrs, controller) {
-
-                scope.isSelectable = true;
-                scope.isSelecting = false;
-                scope.isSelected = false;
 
                 element.on('mousedown', function(event) {
                     if (element.scope().isSelected) {
